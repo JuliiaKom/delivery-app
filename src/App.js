@@ -1,9 +1,10 @@
 import './App.css';
-import s from './App.module.scss';
+import css from './App.module.scss';
 function App() {
   return (
-    <div className={s.delivery}>
 
+    <div className={css.delivery}>
+      <h1>rtretretertertertert</h1>
     </div>
   );
 }
