@@ -1,0 +1,29 @@
+.navbar {
+border:2px solid black;
+
+  .navbar_row{
+   border: 2px solid red;
+    height: 128px;
+    display: flex;
+    //column-gap: 30px;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .logo{
+
+  }
+  .nav{
+    display: flex;
+    column-gap: 40px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%;
+
+  }
+  .navbarBtn{
+    color:red;
+  }
+
+
+}
