@@ -1,36 +1,47 @@
 import css from "./Homepage.module.scss";
-import homepageImg from "./../../fashion-images/categories/image.jpg";
-import categoryImg1 from "./../../fashion-images/categories/category1.png"
-import categoryImg2 from "./../../fashion-images/categories/category2.png"
-import categoryImg3  from "./../../fashion-images/categories/category3.png"
-const Homepage = () => {
-    return(<section className={css.homepage}>
+import blog1Img from "./../../fashion-images/categories/blog1.png";
+import blog2Img from "./../../fashion-images/categories/blog2.png";
+const Homepage = (props) => {
+    return(<homepage className={css.homepage}>
             <div className={css.container}>
-                <div className={css.homepageImg}>
-                    <img src={homepageImg} alt={homepageImg}/>
-                </div>
                 <div className={css.homepageText}>
-                    <h3>New collection</h3>
-                    <h1>Menswear 2020</h1>
-                    <buttons className={css.button}>
-                        <button>
+                    <h3 className={css.titleText}>New collection</h3>
+                    <h1 className={css.title}>Menswear 2020</h1>
+                    <div className={css.buttonsTitle}>
+                        <button className={css.btnWrap}>
                             Shop sale
                         </button>
-                        <button>
+                        <button className={css.btnDesk}>
                             Shop the menswear
                         </button>
-                    </buttons>
+                    </div>
                 </div>
                   <div className={css.categories}>
-                           <img src={categoryImg1} alt={categoryImg1}/>
+                      <img src={props.data.main.categoryImg1} alt="categoryImg1"/>
                                <p>Women’s</p>
-                          <img src={categoryImg2} alt={categoryImg2}/>
+                      <img src={props.data.main.categoryImg2} alt="categoryImg2"/>
                                <p>Men’s</p>
-                           <img src={categoryImg3} alt={categoryImg3}/>
+                      <img src={props.data.main.categoryImg3} alt="categoryImg3"/>
                               <p>Kids</p>
                 </div>
             </div>
-    </section>
+            <section>
+<div className={css.fashionBlog}>
+    <div className={css.fashionBlock}>
+        <h1 className={css.blockTxt}>Fashion blog</h1>
+        <button className={css.blockBtn}>
+            View blog
+        </button>
+    </div>
+<div className={css.blogsImg}>
+    <img src={blog1Img} alt={blog1Img}/>
+    <img src={blog2Img} alt={blog2Img}/>
+</div>
+
+</div>
+            </section>
+    </homepage>
+
 
     )
 }
