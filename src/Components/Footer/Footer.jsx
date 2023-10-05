@@ -10,8 +10,7 @@ import iconYouTube from "./../../fashion-images/icons/YouTube.svg";
 
 function Footer() {
     return (
-        <footer className={css.Footer}>
-
+        <footer className={css.footer}>
             <div className={css.contact}>
                 <h1 className={css.touch}>Get in touch</h1>
                 <p className={css.call}>Call:(405) 555-0128</p>

@@ -1,37 +1,36 @@
-.Footer {
+.footer {
   background-color: #1E212C;
-  width: 1543px;
-  height: 200px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding-bottom: 30px;
 
-  .contact {
-
-  }
-
-  .iconMessendger {
-
+  .iconMessendger img {
+    margin: 10px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 0px 0px #FFFFFF;
+    padding: 10px;
+    background-color: #0a2d2d;
+    margin-left: 0;
   }
 
   .touch {
     color: #FFF;
     font-size: 16px;
     text-transform: uppercase;
-    padding: 24px;
+    margin-top: 40px;
+    margin-bottom: 20px;
   }
+  .touch h1{
 
+  }
   .call {
     color: #FFF;
     font-size: 16px;
   }
 
-  .app {
-    margin-bottom: 50px;
-
-  }
-
-  .iconApp {
-
+  .iconApp img {
+    margin: 10px;
+    margin-left: 0;
   }
 }
