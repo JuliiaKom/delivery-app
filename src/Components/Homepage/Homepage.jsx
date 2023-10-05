@@ -33,8 +33,6 @@ const Homepage = (props) => {
                 </div>
             </div>
         </div>
-
-
     )
 }
 export default Homepage;
