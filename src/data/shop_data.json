@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "name": "Product 1",
+      "category": "Women",
+      "size": "Medium",
+      "price": 29.99,
+      "image": "./../fashion-images/111.jpg"
+    },
+    {
+      "name": "Product 2",
+      "category": "Men",
+      "size": "Large",
+      "price": 34.99,
+      "image": "product2.jpg"
+    },
+    {
+      "name": "Product 3",
+      "category": "Boys",
+      "size": "Small",
+      "price": 19.99,
+      "image": "product3.jpg"
+    },
+    {
+      "name": "Product 4",
+      "category": "Girls",
+      "size": "Medium",
+      "price": 27.99,
+      "image": "product4.jpg"
+    },
+    {
+      "name": "Product 5",
+      "category": "Sale",
+      "size": "Large",
+      "price": 14.99,
+      "image": "product5.jpg"
+    },
+    {
+      "name": "Product 6",
+      "category": "Women",
+      "size": "Small",
+      "price": 39.99,
+      "image": "product6.jpg"
+    },
+    {
+      "name": "Product 7",
+      "category": "Men",
+      "size": "Medium",
+      "price": 42.99,
+      "image": "product7.jpg"
+    },
+    {
+      "name": "Product 8",
+      "category": "Boys",
+      "size": "Large",
+      "price": 24.99,
+      "image": "product8.jpg"
+    },
+    {
+      "name": "Product 9",
+      "category": "Girls",
+      "size": "Small",
+      "price": 32.99,
+      "image": "product9.jpg"
+    },
+    {
+      "name": "Product 10",
+      "category": "Sale",
+      "size": "Medium",
+      "price": 12.99,
+      "image": "product10.jpg"
+    }
+  ]
+}

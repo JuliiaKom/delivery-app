@@ -1,7 +1,8 @@
-import {Link} from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 import React from "react";
 import css from "./Navbar.module.scss";
 import search from "./../../fashion-images/icons/search.svg"
+import Women from "../Shop/Women";
 
 
 function Navbar(props) {
@@ -19,7 +20,7 @@ function Navbar(props) {
                 <div className={css.searchInput}>
                     <form>
                         <input type="search" placeholder="Search..."/>
-                            <button type="submit">Search</button>
+                        <button type="submit">Search</button>
                     </form>
                 </div>
                 <div className={css.icons}>
@@ -27,10 +28,17 @@ function Navbar(props) {
                     <img src={props.data.iconCart} alt="Cart"/>
                 </div>
 
-            </div>
+                <div className={css.shopProducts}>
+                    <Routes>
+                        <Route path="/:category" element={<Women/>}/>
+                    </Routes>
 
+                </div>
+
+            </div>
         </div>
-)
+    )
 
 }
+
 export default Navbar;
