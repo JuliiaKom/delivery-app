@@ -5,11 +5,16 @@ import App from './App';
 import data from "./data/data";
 
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
+import store from "./data/store/store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
-        <App data = {data}/>
+        <Provider store = {store}>
+            <App data = {data}/>
+        </Provider>
+
     </BrowserRouter>
 );
 
