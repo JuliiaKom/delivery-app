@@ -1,20 +1,22 @@
 import {Link, Route, Routes} from "react-router-dom";
-import React from "react";
+import React, {useState}from "react";
 import css from "./Navbar.module.scss";
 import search from "./../../fashion-images/icons/search.svg"
-import Women from "../Shop/Women";
+// import Women from "../Shop/Women";
 
 
 function Navbar(props) {
+    const [linkClicked, setLinkClicked] = useState('');
+
     return (
         <div className={css.navbar}>
             <div className={css.navbar_row}>
-                <img src={props.data.logoImg} alt="Logo"/>
+                <a href="/"><img src={props.data.logoImg} alt="Logo"/></a>
                 <div className={css.nav}>
-                    <Link to="/Women">Women</Link>
-                    <Link to="/Men">Men</Link>
-                    <Link to="/Boys">Boys</Link>
-                    <Link to="/Girls">Girls</Link>
+                    <Link to="/Women" style={{ color: linkClicked === 'women' ? 'blue' : '' }} onClick={() => setLinkClicked('women')}>Women</Link>
+                    <Link to="/Men" style={{ color: linkClicked === 'men' ? 'blue' : '' }} onClick={() => setLinkClicked('men')}>Men</Link>
+                    <Link to="/Boys" style={{ color: linkClicked === 'boys' ? 'blue' : '' }} onClick={() => setLinkClicked('boys')}>Boys</Link>
+                    <Link to="/Girls" style={{ color: linkClicked === 'girls' ? 'blue' : '' }} onClick={() => setLinkClicked('girls')}>Girls</Link>
                     <Link className={css.navbarBtn} to="/Sale">Sale</Link>
                 </div>
                 <div className={css.searchInput}>
@@ -28,12 +30,12 @@ function Navbar(props) {
                     <img src={props.data.iconCart} alt="Cart"/>
                 </div>
 
-                <div className={css.shopProducts}>
-                    <Routes>
-                        <Route path="/:category" element={<Women/>}/>
-                    </Routes>
+                {/*<div className={css.shopProducts}>*/}
+                {/*    <Routes>*/}
+                {/*        <Route path="/:category" element={<Women/>}/>*/}
+                {/*    </Routes>*/}
 
-                </div>
+                {/*</div>*/}
 
             </div>
         </div>
