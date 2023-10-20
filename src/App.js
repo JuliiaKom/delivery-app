@@ -5,11 +5,6 @@ import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import {Route, Routes} from "react-router-dom";
 import Main from "./Components/Homepage/main";
-import Sale from "./Components/Shop/Sale";
-import Girls from "./Components/Shop/Girls";
-import Women from "./Components/Shop/Women";
-import Men from "./Components/Shop/Men";
-import Boys from "./Components/Shop/Boys";
 import Shop from "./Components/Shop/Shop";
 
 function App(props) {
