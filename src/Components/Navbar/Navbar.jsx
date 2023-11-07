@@ -1,8 +1,7 @@
-import {Link, Route, Routes} from "react-router-dom";
+import {Link, NavLink, Route, Routes} from "react-router-dom";
 import React, {useState}from "react";
 import css from "./Navbar.module.scss";
 import search from "./../../fashion-images/icons/search.svg"
-// import Women from "../Shop/Women";
 
 
 function Navbar(props) {
@@ -13,11 +12,11 @@ function Navbar(props) {
             <div className={css.navbar_row}>
                 <a href="/"><img src={props.data.logoImg} alt="Logo"/></a>
                 <div className={css.nav}>
-                    <Link to="/Women" style={{ color: linkClicked === 'women' ? 'blue' : '' }} onClick={() => setLinkClicked('women')}>Women</Link>
-                    <Link to="/Men" style={{ color: linkClicked === 'men' ? 'blue' : '' }} onClick={() => setLinkClicked('men')}>Men</Link>
-                    <Link to="/Boys" style={{ color: linkClicked === 'boys' ? 'blue' : '' }} onClick={() => setLinkClicked('boys')}>Boys</Link>
-                    <Link to="/Girls" style={{ color: linkClicked === 'girls' ? 'blue' : '' }} onClick={() => setLinkClicked('girls')}>Girls</Link>
-                    <Link className={css.navbarBtn} to="/Sale">Sale</Link>
+                    <NavLink to="/Women" style={{ color: linkClicked === 'women' ? '#137777' : '' }} onClick={() => setLinkClicked('women')}>Women</NavLink>
+                    <NavLink to="/Men" style={{ color: linkClicked === 'men' ? '#137777' : '' }} onClick={() => setLinkClicked('men')}>Men</NavLink>
+                    <NavLink to="/Boys" style={{ color: linkClicked === 'boys' ? '#137777' : '' }} onClick={() => setLinkClicked('boys')}>Boys</NavLink>
+                    <NavLink to="/Girls" style={{ color: linkClicked === 'girls' ? '#137777' : '' }} onClick={() => setLinkClicked('girls')}>Girls</NavLink>
+                    <NavLink className={css.navbarBtn} to="/Sale">Sale</NavLink>
                 </div>
                 <div className={css.searchInput}>
                     <form>
@@ -29,14 +28,6 @@ function Navbar(props) {
                     <img src={props.data.iconHeart} alt="Heart"/>
                     <img src={props.data.iconCart} alt="Cart"/>
                 </div>
-
-                {/*<div className={css.shopProducts}>*/}
-                {/*    <Routes>*/}
-                {/*        <Route path="/:category" element={<Women/>}/>*/}
-                {/*    </Routes>*/}
-
-                {/*</div>*/}
-
             </div>
         </div>
     )

@@ -1,4 +1,3 @@
-import './App.css';
 import css from './App.module.scss';
 import React from "react";
 import Navbar from "./Components/Navbar/Navbar";
@@ -6,6 +5,7 @@ import Footer from "./Components/Footer/Footer";
 import {Route, Routes} from "react-router-dom";
 import Main from "./Components/Homepage/main";
 import Shop from "./Components/Shop/Shop";
+import Product from "./Components/Shop/Product/Product";
 
 function App(props) {
     return (
@@ -18,9 +18,9 @@ function App(props) {
                 <Route path="/:category" element={<Shop/>}/>
                 {/*<Route path="/:category" element={<Shop/>}/>*/}
                 {/*<Route path="/Sale" element={<Sale/>}/>*/}
+                <Route path="/products/:productId" element={<Product/>}/>
             </Routes>
             <Footer/>
-
         </div>
 
 
