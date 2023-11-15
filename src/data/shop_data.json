@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "name": "Product 1",
+      "name": "Blouse",
       "category": "Women",
       "size": "Medium",
       "price": 29.99,

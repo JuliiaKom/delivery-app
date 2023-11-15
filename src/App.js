@@ -13,11 +13,7 @@ function App(props) {
             <Navbar data={props.data.navbar}/>
             <Routes>
                 <Route path="/*" element={<Main data={props.data}/>}/>
-                {/*<Route path="/Women" element={<Women/>}/>*/}
-                {/*<Route path="/Men" element={<Men/>}/>*/}
                 <Route path="/:category" element={<Shop/>}/>
-                {/*<Route path="/:category" element={<Shop/>}/>*/}
-                {/*<Route path="/Sale" element={<Sale/>}/>*/}
                 <Route path="/products/:productId" element={<Product/>}/>
             </Routes>
             <Footer/>

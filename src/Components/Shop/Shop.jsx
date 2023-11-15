@@ -1,16 +1,23 @@
 import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
-import fake_data from '../../data/shop_data.json';
+import {Route, Routes, useNavigate, useParams} from "react-router-dom";
 import css from "./Shop.module.scss";
+import Product from "./Product/Product";
+import StorageService from "../../services/storage";
+import {useDispatch, useSelector} from "react-redux";
+import Preloader from "../Preloader/Preloader";
 
 const Shop = () => {
+    let isFetching = useSelector(state => state.shop.isFetching);
     let {category} = useParams();
     const [products, setProducts] = useState();
 
     useEffect(() => {
+
+       let products = StorageService.getAll()
+
         const fetchData = () => {
             return Promise.resolve({
-                json: () => (setProducts(fake_data.products)),
+                json: () => (setProducts(products)),
             });
         };
 
@@ -20,20 +27,25 @@ const Shop = () => {
     }, []);
     const filteredProducts = products?.filter((product) => product.category === category);
 
-    // const ShowMoreHandler = () => {
-    //   console.log('change value')
-    // }
+
+    const navigate = useNavigate();
+    const ShowMoreHandler = (product_id) => {
+        navigate(`/products/${product_id}`)
+    }
+
     return (
         <div>
             {filteredProducts && (
                 <div className={css.Shop}>
-                    {filteredProducts.map(product => (
+                    {
+                        isFetching? <Preloader/> : filteredProducts.map(product => (
                         <div className={css.container} key={product.id}>
                                 <img src={product.image} alt=""/>
                             <div className={css.containerProduct}>
                                 {product.name}, {product.size}, ${product.price}
                                 <div>
-                                    <button>Show more info</button>
+                                    <button onClick={() => ShowMoreHandler(product.id)}>Show more info</button>
+                                    {/*<button>Show more info</button>*/}
                                     <button>Add to cart</button>
                                 </div>
 

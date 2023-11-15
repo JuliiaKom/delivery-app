@@ -4,12 +4,15 @@ const shopSlice = createSlice({
     name: `shop`,
     initialState: {
         products: [],
+        isFetching: true,
     },
     reducers: {
         setProducts(state, action) {
-            debugger;
             let tmp = {...state, products: [...action.payload]};
             return tmp;
+        },
+        toggleIsFetching(state, action) {
+            return {...state, isFetching: action.payload}
 
         }
     }
