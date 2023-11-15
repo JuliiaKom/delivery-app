@@ -1,8 +1,10 @@
-import gif from "./../Preloader/preloader_img.gif";
+import preloader from "./../Preloader/preloader_img.gif";
 
 const Preloader = () => {
-    <div>
-        <img src={gif} alt="gif"/>
-    </div>
+    return (
+        <div>
+            <img src={preloader} alt=""/>
+        </div>
+    )
 }
 export default Preloader;

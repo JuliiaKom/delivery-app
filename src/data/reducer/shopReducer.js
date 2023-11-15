@@ -17,5 +17,5 @@ const shopSlice = createSlice({
         }
     }
 })
-export const {setProducts} = shopSlice.actions;
+export const {setProducts, toggleIsFetching} = shopSlice.actions;
 export default shopSlice.reducer;
