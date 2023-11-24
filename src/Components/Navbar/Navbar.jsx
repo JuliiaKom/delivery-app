@@ -26,7 +26,10 @@ function Navbar(props) {
                 </div>
                 <div className={css.icons}>
                     <img src={props.data.iconHeart} alt="Heart"/>
-                    <img src={props.data.iconCart} alt="Cart"/>
+                  <NavLink to="/ShoppingCart">
+                      <img src={props.data.iconCart} alt="Cart"/>
+                  </NavLink>
+
                 </div>
             </div>
         </div>

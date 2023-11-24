@@ -1,0 +1,20 @@
+.ShoppingCart {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  margin: 0 30px 0 0;
+
+  .Form {
+    width: 45%;
+    padding: 30px;
+    border: 1px solid black;
+    margin: 0 30px 0 0;
+  }
+
+  .Cart {
+    width: 45%;
+    padding: 30px;
+    border: 1px solid black;
+    margin: 0 30px 0 0;
+  }
+}
