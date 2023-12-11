@@ -19,13 +19,16 @@ function Navbar(props) {
                     <NavLink className={css.navbarBtn} to="/Sale">Sale</NavLink>
                 </div>
                 <div className={css.searchInput}>
-                    <form>
-                        <input type="search" placeholder="Search..."/>
-                        <button type="submit">Search</button>
-                    </form>
+                    {/*<form>*/}
+                    {/*    <input type="search" placeholder="Search..."/>*/}
+                    {/*    <button type="submit">Search</button>*/}
+                    {/*</form>*/}
                 </div>
                 <div className={css.icons}>
-                    <img src={props.data.iconHeart} alt="Heart"/>
+                    <NavLink to="/Favorites">
+                        <img src={props.data.iconHeart} alt="Heart"/>
+                    </NavLink>
+
                   <NavLink to="/ShoppingCart">
                       <img src={props.data.iconCart} alt="Cart"/>
                   </NavLink>

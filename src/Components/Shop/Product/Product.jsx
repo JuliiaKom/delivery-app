@@ -5,14 +5,14 @@ import StorageService from "../../../services/storage";
 import {useDispatch, useSelector} from "react-redux";
 import {addProductToCart} from "../../../data/reducer/ShoppingCartReducer";
 import {toggleIsFetching} from "../../../data/reducer/shopReducer";
+import img from "./../../../fashion-images/icons/heart.svg"
 import Preloader from "../../Preloader/Preloader";
 
-const Product = () => {
+const Product = (props) => {
     let {productId} = useParams();
     const [product, setProduct] = useState();
     let dispatch = useDispatch();
     let isFetching = useSelector(state => state.shop.isFetching);
-
 
 
     const getProductById = () => {
@@ -30,22 +30,25 @@ const Product = () => {
     return (
         <div>
 
-            {product && (
-                // {isFetching ? <Preloader/> :
-                        <div className={css.Product}>
-
+            {/*{product && (*/}
+            {isFetching ? <Preloader/> :
+                <div className={css.Product}>
                     <div>
-                        <img src={product.image} alt={product.title}/>
+                        <img src={product.image}/>
+                        <button className={css.Product.favoritesImg}> <img src={img} alt="Heart"/></button>
                     </div>
                     <h1>{product.name}</h1>
                     <h3>Price: {product.price}$</h3>
                     <h3>{product.size}</h3>
+
                     <button onClick={() => dispatch(addProductToCart(product.id))}>Add to cart</button>
                 </div>
-            )}
+            }
+            )
         </div>
 
 
-)
+
+    )
 }
 export default Product;

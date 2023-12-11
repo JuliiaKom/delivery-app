@@ -1,23 +1,18 @@
-.Product {
+.favorite {
   display: flex;
   align-items: center;
-  flex-direction: column;
   padding: 30px;
+  justify-content: space-around;
 
-  div {
+  .favoriteItem{
     height: 80%;
-    display: flex;
-    align-items: center;
     justify-content: center;
   }
-  img{
+  img {
     border: 1px solid #137777;
     border-radius: 10px;
     padding: 30%;
     background-color: #f0f0f0;
-  }
-  h3{
-    text-align: center;
   }
   button {
     padding: 10px 40px;
@@ -28,11 +23,4 @@
     margin: 10px;
     border-radius: 10px;
   }
-  button:hover {
-    background-color: #36a4a4;
-  }
-  favoritesImg {
-    border: none;
-  }
-
 }

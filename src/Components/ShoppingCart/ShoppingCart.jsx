@@ -1,25 +1,53 @@
 import css from "./ShoppingCart.module.scss";
 import {useSelector} from "react-redux";
-import ShoppingCartItem from "./ShoppingCartItem/ProductInCart";
-import productInCart from "./ShoppingCartItem/ProductInCart";
+import ShoppingCartItem from "./ShoppingCartItem/ShoppingCartItem";
+import React, {useState} from "react";
+import FormVisible from "./FormVisible/FormVisible";
+import StorageService from "../../services/storage";
 
 const ShoppingCart = () => {
     let products = useSelector(state => state.shoppingCart.productsInCart);
+    const [formVisible, setFormVisible] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const toggleForm = () => {
+        setFormVisible(!formVisible);
+    }
+    const handleLogin = (password) => {
+        const correctPassword = "secret123";
+        if (password === correctPassword) {
+            alert('Login successful with password');
+            setIsAuthenticated(true);
 
-     return (
+        } else {
+            alert('Incorrect password.');
+            setIsAuthenticated(false);
+        }
+
+    }
+
+    return (
         <div className={css.ShoppingCart}>
-            <div className={css.Form} key="123">
-               <h2>text</h2>
-                {/*<input type="text"/>*/}
-                {/*<h2>text</h2>*/}
-                {/* <input type="text"/>*/}
-                {/* <h2>text</h2>*/}
-                {/* <input type="text"/>*/}
-                {/*<div>{products.reduce((accumulator, productInCart) => accumulator + productInCart.price, 0).toFixed(2)}$</div>*/}
-             </div>
+
             <div className={css.Cart}>
-                {products.map(productInCart => <ShoppingCartItem productInCart={productInCart}/>)}
+
+                {products.map(shoppingCartItem => <ShoppingCartItem shoppingCartItem={shoppingCartItem}/>)}
             </div>
+
+            <div className={css.totalPrice}>
+                <h3>Total Price</h3>
+                {products.reduce((accumulator, productInCart) => {
+                console.log(productInCart);
+                return accumulator + StorageService.getById(productInCart).price;
+            }, 0).toFixed(2)}$</div>
+
+            {formVisible ? (
+                <FormVisible closeForm={toggleForm} handleLogin={handleLogin}/>
+            ) : (
+                <div>
+                    <button onClick={toggleForm}>Log In</button>
+                </div>
+            )}
+
         </div>
     )
 }

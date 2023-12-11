@@ -7,6 +7,8 @@ import Main from "./Components/Homepage/main";
 import Shop from "./Components/Shop/Shop";
 import Product from "./Components/Shop/Product/Product";
 import ShoppingCart from "./Components/ShoppingCart/ShoppingCart";
+import FormVisible from "./Components/ShoppingCart/FormVisible/FormVisible";
+import Favorites from "./Components/Favorites/Favorites";
 
 function App(props) {
     return (
@@ -17,6 +19,7 @@ function App(props) {
                 <Route path="/:category" element={<Shop/>}/>
                 <Route path="/products/:productId" element={<Product/>}/>
                 <Route path="/shoppingCart" element={<ShoppingCart/>}></Route>
+                <Route path="/favorites" element={<Favorites/>}></Route>
             </Routes>
             <Footer/>
         </div>

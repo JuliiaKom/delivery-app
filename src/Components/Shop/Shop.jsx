@@ -6,6 +6,9 @@ import Preloader from "../Preloader/Preloader";
 import {toggleIsFetching, setProducts} from "../../data/reducer/shopReducer"
 import axios from "axios";
 import {addProductToCart} from "../../data/reducer/ShoppingCartReducer";
+import {addToFavorites} from "../../data/reducer/FavoritesReducer";
+
+
 
 // json-server -p 4000 --watch products.json
 // json-server -p 4000 --delay 5000 --watch products.json
@@ -30,7 +33,8 @@ const Shop = () => {
     const navigate = useNavigate();
     const ShowMoreHandler = (product_id) => {
         navigate(`/products/${product_id}`)
-    }
+    };
+
 
     return (
         <div className={css.Shop}>
@@ -44,6 +48,7 @@ const Shop = () => {
                                 <button onClick={() => ShowMoreHandler(product.id)}>Show more info</button>
                                 {/*<button>Show more info</button>*/}
                                 <button onClick={() => dispatch(addProductToCart(product.id))}>Add to cart</button>
+                                <button onClick={() => dispatch(addToFavorites(product.id))}>Add to Favorites</button>
                             </div>
 
                         </div>
