@@ -1,14 +1,21 @@
 import {createSlice} from "@reduxjs/toolkit";
 
+
 const shoppingCartSlice = createSlice({
     name: `shoppingCart`,
     initialState: {
         productsInCart: [],
-        // counter:
+        form: {
+            name: "name",
+            email: "email"
+
+        },
+        counter: 0
     },
     reducers: {
         addProductToCart(state, action) {
-            console.log('234234324234')
+            console.log('234234324234');
+            debugger;
             let id = action.payload;
             // let counterSum = action.payload;
             // counterSum.counter = 10;
@@ -27,8 +34,20 @@ const shoppingCartSlice = createSlice({
                 productsInCart: [...state.productsInCart.filter((pr) => pr !== id)]
             }
 
+        },
+
+        updateFormVisible: (state, action) => {
+            const {field, value} = action.payload;
+            return {
+                ...state,
+                form: {
+                    ...state.form,
+                    [field]: value,
+                },
+            }
         }
     }
 })
-export const {addProductToCart, removeProductAtCart} = shoppingCartSlice.actions;
+export const {addProductToCart, removeProductAtCart,updateFormVisible,} = shoppingCartSlice.actions;
+
 export default shoppingCartSlice.reducer;
