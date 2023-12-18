@@ -4,34 +4,43 @@ import {createSlice} from "@reduxjs/toolkit";
 const shoppingCartSlice = createSlice({
     name: `shoppingCart`,
     initialState: {
-        productsInCart: [],
+        productsInCart: [{}],
         form: {
             name: "name",
             email: "email"
 
-        },
-        counter: 0
+        }
     },
     reducers: {
         addProductToCart(state, action) {
-            console.log('234234324234');
-            debugger;
-            let id = action.payload;
-            // let counterSum = action.payload;
-            // counterSum.counter = 10;
+            const id = action.payload;
+            const existingProduct = state.productsInCart.find((pr) => pr.key === id);
 
-            if (!state.productsInCart.some(pr => pr.id === id)) {
-                return {...state, productsInCart: [...state.productsInCart, action.payload]}
+            if (existingProduct) {
+                // If the product exists, update its quantity
+                const updatedProducts = state.productsInCart.map((pr) =>
+                    pr.key === id ? { ...pr, value: pr.value + 1 } : pr
+                );
+
+                return { ...state, productsInCart: updatedProducts };
+            } else {
+                // If the product doesn't exist, add a new item to the cart
+                const new_item = { key: id, value: 1 };
+                return {
+                    ...state,
+                    productsInCart: [...state.productsInCart, new_item]
+                };
             }
+
         },
         removeProductAtCart(state, action) {
             console.log('ssfsdfsddfdgdfgdfgdffds')
             let id = action.payload;
-            // return {...state, productsInCart: [...state.productsInCart.filter(pr => pr.id !== id)]}
+
 
             return {
                 ...state,
-                productsInCart: [...state.productsInCart.filter((pr) => pr !== id)]
+                productsInCart: [...state.productsInCart.filter((pr) => pr.key !== id)]
             }
 
         },
