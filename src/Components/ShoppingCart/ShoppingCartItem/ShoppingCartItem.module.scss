@@ -1,0 +1,44 @@
+
+  .ShoppingCartItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: 30px;
+
+    h2 {
+      margin-bottom: 5px;
+    }
+    h2.price {
+      color: green;
+    }
+    .quantity{
+      display: flex;
+      align-items: center;
+    }
+    .quantity button {
+      background-color: white;
+      color: #137777;
+      border: 3px solid #137777;
+      padding: 5px 10px;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+    .quantity p {
+      font-size: 24px;
+      padding: 10px;
+    }
+    button.remove {
+      padding: 10px 20px;
+      background-color: #137777;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+}
+
+
