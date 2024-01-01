@@ -3,9 +3,12 @@ import {useNavigate} from "react-router-dom";
 
 const Homepage = (props) => {
     const navigate = useNavigate();
-    const ToMen = (product_id) => {
+    const ToMen = () => {
         navigate(`/Men`)
     };
+    const shopSale = () => {
+        navigate(`/Sale`)
+    }
 
     return (
         <div className={css.homepage}>
@@ -14,7 +17,7 @@ const Homepage = (props) => {
                     <h3 className={css.titleText}>New collection</h3>
                     <h1 className={css.title}>Menswear 2020</h1>
                     <div className={css.buttonsTitle}>
-                        <button className={css.btnWrap}>
+                        <button className={css.btnWrap} onClick={shopSale}>
                             Shop sale
                         </button>
                         <button className={css.btnDesk} onClick={ToMen}>

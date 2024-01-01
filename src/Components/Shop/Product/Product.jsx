@@ -25,7 +25,7 @@ const Product = (props) => {
 
             setProduct(product);
         } catch (error) {
-            console.error('Помилка отримання даних продукту:', error);
+            console.log("error");
         } finally {
             dispatch(toggleIsFetching(false));
         }
@@ -57,12 +57,11 @@ const Product = (props) => {
                             <h3>{product.size}</h3>
                             <div>
                                 <button onClick={() => dispatch(addProductToCart(product.id))}>Add to cart</button>
-                                <button  className={css.favoritesBtn} onClick={() => dispatch(addToFavorites(product.id))}>
+                                <button className={css.favoritesBtn}
+                                        onClick={() => dispatch(addToFavorites(product.id))}>
                                     <img className={css.heart} src={img} alt="Heart"/>
                                 </button>
                             </div>
-
-
                         </>
                     ) : (
                         <p>Product not found</p>

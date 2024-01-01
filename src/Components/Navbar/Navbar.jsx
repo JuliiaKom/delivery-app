@@ -1,7 +1,6 @@
 import {Link, NavLink, Route, Routes} from "react-router-dom";
 import React, {useState} from "react";
 import css from "./Navbar.module.scss";
-import search from "./../../fashion-images/icons/search.svg"
 import FormVisible from "../ShoppingCart/FormVisible/FormVisible";
 import {useSelector} from "react-redux";
 import {selectTotalQuantity} from "../../data/reducer/ShoppingCartReducer";
@@ -9,7 +8,6 @@ import {selectTotalQuantity} from "../../data/reducer/ShoppingCartReducer";
 
 function Navbar(props) {
     const [linkClicked, setLinkClicked] = useState('');
-
     const [formVisible, setFormVisible] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const totalQuantity = useSelector(selectTotalQuantity);
@@ -28,7 +26,6 @@ function Navbar(props) {
             alert('Incorrect password.');
             setIsAuthenticated(false);
         }
-
     }
 
 
@@ -70,7 +67,6 @@ function Navbar(props) {
             </div>
         </div>
     )
-
 }
 
 export default Navbar;

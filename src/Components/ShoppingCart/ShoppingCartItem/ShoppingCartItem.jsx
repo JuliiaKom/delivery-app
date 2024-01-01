@@ -19,7 +19,6 @@ const ShoppingCartItem = (props) => {
 
     return (
         <div>
-
             {product && (
                 <div className={css.ShoppingCartItem}>
                     <div>
@@ -27,10 +26,8 @@ const ShoppingCartItem = (props) => {
                     </div>
                     <h2>{product.name}</h2>
                     <div>
-
                         <h2 className={css.price}>Price:{product.price}$</h2>
                         <div className={css.quantity}>
-                            {/*<button onClick={() => setQuantity(quantity + 1)}> +</button>*/}
                             <button onClick={() => dispatch(addProductToCart(product.id))}> +</button>
                             <p>{props.shoppingCartItem.value}</p>
                             <button onClick={() => dispatch(deleteProductAtCart(product.id))}> -</button>
@@ -39,8 +36,6 @@ const ShoppingCartItem = (props) => {
                     <button className={css.remove} onClick={() => dispatch(removeProductAtCart(product.id))}>Remove at
                         Cart
                     </button>
-
-
                 </div>
             )}
         </div>

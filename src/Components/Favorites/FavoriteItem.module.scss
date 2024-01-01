@@ -1,4 +1,4 @@
-.FavoriteItem{
+.FavoriteItem {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -8,5 +8,11 @@
 
   h2.price {
     color: green;
+  }
+
+  .buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 }

@@ -1,5 +1,4 @@
 import css from "./Footer.module.scss";
-import iconCart from "../../fashion-images/icons/cart.svg";
 import React from "react";
 import appStore from "./../../fashion-images/icons/app-store.svg";
 import googlePlay from "./../../fashion-images/icons/google-play.svg";

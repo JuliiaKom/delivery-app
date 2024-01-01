@@ -1,11 +1,12 @@
 .homepage {
 
-
   .container {
     background-image: url("./../../fashion-images/categories/image.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
+
 
     @media (min-width: 768px) {
       // Додати стилі для екранів шириною 768px і більше
@@ -27,6 +28,8 @@
     justify-content: center;
     gap: 20px;
     border-radius: 4px;
+    padding-top: 130px;
+
 
     @media (max-width: 768px) {
       // Додати стилі для екранів шириною 768px і менше
@@ -49,6 +52,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     padding-bottom: 12px;
+    padding-top: 18px;
   }
 
   .buttonsTitle {
@@ -62,6 +66,7 @@
     font-size: 16px;
     border-radius: 4px;
     border: 2px solid #17696A;
+    cursor: pointer;
   }
 
   .btnDesk {
@@ -72,6 +77,7 @@
     border-radius: 4px;
     border: none;
     font-size: 16px;
+    cursor: pointer;
   }
 }
 

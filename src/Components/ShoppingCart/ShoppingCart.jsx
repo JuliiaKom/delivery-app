@@ -52,7 +52,7 @@ const ShoppingCart = () => {
 
             <div className={css.totalPrice}>
                 <h3>Total Price</h3>
-                {totalPrice}$
+                <span>{totalPrice}$</span>
             </div>
         </div>
     )

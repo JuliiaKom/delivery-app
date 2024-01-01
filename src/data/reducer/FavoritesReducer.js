@@ -7,23 +7,16 @@ const favoritesSlice = createSlice({
     },
     reducers: {
         addToFavorites(state, action) {
-            console.log('234234324234')
             let id = action.payload;
             const existingProduct = state.favorites.find((pr) => {
-               console.log('khjkjkhjkhj')
                return pr === id
             });
 
             if (!existingProduct) {
                 state.favorites.push(action.payload);
             }
-            // if (!state.favorites.some((pr) => pr.id === id)) {
-            //     state.favorites.push(action.payload);
-            // }
         },
         removeFromFavorites(state, action) {
-           // let id = action.payload;
-           //  state.favorites = state.favorites.filter((pr) => pr.id !== id);
             let id = action.payload;
 
             return {
@@ -31,9 +24,6 @@ const favoritesSlice = createSlice({
                 favorites: [...state.favorites.filter((pr) => pr !== id)]
             }
         },
-
-
-
     },
 });
 

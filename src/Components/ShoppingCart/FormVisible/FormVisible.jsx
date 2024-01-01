@@ -5,7 +5,6 @@ const FormVisible = ({closeForm, handleLogin}) => {
     const [password, setPassword] = useState('');
     const [isModalVisible, setIsModalVisible] = useState(true);
 
-
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
     }

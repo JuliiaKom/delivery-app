@@ -47,7 +47,6 @@ const shoppingCartSlice = createSlice({
             }
         },
         removeProductAtCart(state, action) {
-            console.log('ssfsdfsddfdgdfgdfgdffds')
             let id = action.payload;
 
             return {

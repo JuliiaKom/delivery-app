@@ -1,11 +1,21 @@
 .ShoppingCart {
   padding: 0 30px 30px 30px;
   height: 100%;
-  border: 1px solid black;
 
   .totalPrice {
     width: 100%;
     margin-top: 20px;
+  }
+  p {
+    text-align: center;
+    font-size: 35px;
+    color: #36a4a4;
+  }
+  h3 {
+    font-size: 25px;
+  }
+  span {
+    font-size: 22px;
   }
 
 }

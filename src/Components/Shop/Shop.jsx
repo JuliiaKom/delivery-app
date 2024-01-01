@@ -8,17 +8,10 @@ import axios from "axios";
 import {addProductToCart} from "../../data/reducer/ShoppingCartReducer";
 import {addToFavorites} from "../../data/reducer/FavoritesReducer";
 
-
-
-// json-server -p 4000 --watch products.json
-// json-server -p 4000 --delay 5000 --watch products.json
-
-
 const Shop = () => {
     let products = useSelector(state => state.shop.products);
     let isFetching = useSelector(state => state.shop.isFetching);
     let {category} = useParams();
-
     let dispatch = useDispatch();
 
     useEffect(() => {
@@ -41,24 +34,19 @@ const Shop = () => {
             {isFetching ? <Preloader/> : products.map(product =>
                 (
                     <div className={css.container} key={product.id}>
-                        <img src={product.image} alt=""/>
-                        <div className={css.containerProduct}>
+                        <img src={product.image} className={css.product} alt=""/>
+                        <div>
                             {product.name}, {product.size}, ${product.price}
                             <div>
                                 <button onClick={() => ShowMoreHandler(product.id)}>Show more info</button>
-                                {/*<button>Show more info</button>*/}
                                 <button onClick={() => dispatch(addProductToCart(product.id))}>Add to cart</button>
                                 <button onClick={() => dispatch(addToFavorites(product.id))}>Add to Favorites</button>
                             </div>
-
                         </div>
-
                     </div>
                 ))
-
             }
         </div>
     )
-
 }
 export default Shop;
