@@ -28,11 +28,11 @@
     margin: 10px;
     border-radius: 10px;
   }
-  button:hover {
-    background-color: #36a4a4;
-  }
-  favoritesImg {
+  .favoritesBtn {
     border: none;
+    background: none;
+    .heart {
+      padding: 5px 15px;
+    }
   }
-
 }

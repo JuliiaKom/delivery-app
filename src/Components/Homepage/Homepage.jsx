@@ -1,6 +1,12 @@
 import css from "./Homepage.module.scss";
+import {useNavigate} from "react-router-dom";
 
 const Homepage = (props) => {
+    const navigate = useNavigate();
+    const ToMen = (product_id) => {
+        navigate(`/Men`)
+    };
+
     return (
         <div className={css.homepage}>
             <div className={css.container}>
@@ -11,7 +17,7 @@ const Homepage = (props) => {
                         <button className={css.btnWrap}>
                             Shop sale
                         </button>
-                        <button className={css.btnDesk}>
+                        <button className={css.btnDesk} onClick={ToMen}>
                             Shop the menswear
                         </button>
                     </div>

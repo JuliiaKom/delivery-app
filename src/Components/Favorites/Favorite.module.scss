@@ -1,17 +1,9 @@
 .favorite {
-  display: flex;
-  align-items: center;
-  padding: 30px;
-  justify-content: space-around;
+  padding: 0 30px 30px 30px;
+  height: 100%;
 
-  .favoriteItem{
-    height: 80%;
-    justify-content: center;
-  }
   img {
-    border: 1px solid #137777;
     border-radius: 10px;
-    padding: 30%;
     background-color: #f0f0f0;
   }
   button {

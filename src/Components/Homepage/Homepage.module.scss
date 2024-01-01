@@ -6,10 +6,20 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    @media (min-width: 768px) {
+      // Додати стилі для екранів шириною 768px і більше
+      margin-left: 20px;
+    }
+
   }
 
   .homepageText {
     margin-left: 345px;
+    @media (max-width: 768px) {
+      // Додати стилі для екранів шириною 768px і менше
+      margin-left: 20px;
+    }
   }
 
   .categories {
@@ -17,6 +27,11 @@
     justify-content: center;
     gap: 20px;
     border-radius: 4px;
+
+    @media (max-width: 768px) {
+      // Додати стилі для екранів шириною 768px і менше
+      flex-direction: column;
+    }
   }
   .categories p {
     text-align: center;

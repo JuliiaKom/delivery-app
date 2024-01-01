@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {removeFromFavorites} from "../../data/reducer/FavoritesReducer";
-import css from "./Favorites.module.scss";
+import css from "./FavoriteItem.module.scss";
 
 const FavoriteItem = (props) => {
     let dispatch = useDispatch();
@@ -18,10 +18,10 @@ const FavoriteItem = (props) => {
         return (
             <div>
                 {item && (
-                    <div className={css.favoriteItem}>
+                    <div className={css.FavoriteItem}>
 
                         <img src={item.image} alt=""/>
-                        <h2>{item.title}</h2>
+                        <h2>{item.name}</h2>
                         <h2>Price:{item.price}$</h2>
                         <button onClick={()=>dispatch(removeFromFavorites(item.id))}>Remove</button>
                     </div>

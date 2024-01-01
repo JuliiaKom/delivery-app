@@ -7,7 +7,6 @@ import Main from "./Components/Homepage/main";
 import Shop from "./Components/Shop/Shop";
 import Product from "./Components/Shop/Product/Product";
 import ShoppingCart from "./Components/ShoppingCart/ShoppingCart";
-import FormVisible from "./Components/ShoppingCart/FormVisible/FormVisible";
 import Favorites from "./Components/Favorites/Favorites";
 
 function App(props) {
@@ -23,13 +22,6 @@ function App(props) {
             </Routes>
             <Footer/>
         </div>
-
-
-
-
-
-
-
 );
 }
 

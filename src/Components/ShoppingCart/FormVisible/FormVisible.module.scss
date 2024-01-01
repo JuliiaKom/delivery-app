@@ -8,46 +8,52 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.ModalContent {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-}
 
-.Form {
-  border: 1px solid black;
-
-  > :is(input, button) {
-    width: 100%;
-    height: 56px;
-    border-radius: 10px;
+  .ModalContent {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
   }
 
-  > input {
-    background: #eeeeee;
-    padding: 0;
-    border: 0;
-    text-align: center;
-    font-size: 15px;
-  }
+  .Form {
+    padding: 5px;
+    > :is(input, button) {
+      width: 100%;
+      height: 56px;
+      border-radius: 10px;
+      margin: 10px;
+    }
 
-  > button {
-    background: #137777;
+    > input {
+      background: #eeeeee;
+      padding: 0;
+      border: 0;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    > button {
+      background: #137777;
+      cursor: pointer;
+      color: #FFFFFF;
+      border: 0;
+      letter-spacing: 4px;
+      font-size: 20px;
+    }
+
+    > a {
+      color: #17696A;
+      font-size: 18px;
+      text-decoration: none;
+    }
+  }
+  .closeButton {
+    margin-top: 10px;
     cursor: pointer;
-    color: #FFFFFF;
-    border: 0;
-    letter-spacing: 4px;
-    font-size: 20px;
-  }
-   > a {
     color: #17696A;
-    font-size: 18px;
-    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #17696A;
+    padding: 5px 10px;
   }
-}
-.CloseButton {
-  margin-top: 10px;
-  cursor: pointer;
 }

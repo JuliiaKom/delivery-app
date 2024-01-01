@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux";
-import css from "./Favorites.module.scss";
+import css from "./Favorite.module.scss";
 import React from "react";
 import FavoriteItem from "./FavoriteItem";
 
