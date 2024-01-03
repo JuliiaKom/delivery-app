@@ -6,8 +6,7 @@ import FavoriteItem from "./FavoriteItem";
 const Favorites = () => {
     const favorites = useSelector(state => state.favoriteItems.favorites);
 
-
-    return(
+    return (
             <div className={css.favorite}>
                 {favorites.map(f => <FavoriteItem favoriteItem={f}/>)}
             </div>

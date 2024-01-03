@@ -1,11 +1,17 @@
 import {createSelector, createSlice} from "@reduxjs/toolkit";
 
+const loadProductsFromLocalStorage = () => {
+    const products = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+    return { productsInCart: products };
+};
+
+const updateLocalStorage = (state) => {
+    localStorage.setItem("shoppingCart", JSON.stringify(state.productsInCart));
+};
 
 const shoppingCartSlice = createSlice({
     name: `shoppingCart`,
-    initialState: {
-        productsInCart: [],
-    },
+    initialState:  loadProductsFromLocalStorage(),
 
     reducers: {
         addProductToCart(state, action) {
@@ -17,14 +23,20 @@ const shoppingCartSlice = createSlice({
                     pr.key === id ? { ...pr, value: pr.value + 1 } : pr
                 );
 
-                return { ...state, productsInCart: updatedProducts};
+                const updated_state = { ...state, productsInCart: updatedProducts};
+                updateLocalStorage(updated_state)
+                return updated_state
+
             } else {
                 const new_item = { key: id, value: 1 };
-                return {
+                const updated_state = {
                     ...state,
                     productsInCart: [...state.productsInCart, new_item],
                 };
+                updateLocalStorage(updated_state)
+                return updated_state
             }
+
         },
 
         deleteProductAtCart(state, action) {
