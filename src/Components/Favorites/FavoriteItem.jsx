@@ -28,7 +28,6 @@ const FavoriteItem = (props) => {
                             <button onClick={()=>dispatch(removeFromFavorites(item.id))}>Remove</button>
                             <button onClick={() => dispatch(addProductToCart(item.id))}>Add to cart</button>
                         </div>
-
                     </div>
                 )}
             </div>

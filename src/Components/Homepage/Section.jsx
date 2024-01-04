@@ -37,7 +37,6 @@ const Section = (props) => {
 
             </div>
         </div>
-
     )
 }
 
