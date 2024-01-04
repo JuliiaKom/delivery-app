@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import ShoppingCartItem from "./ShoppingCartItem/ShoppingCartItem";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import * as Constans from "../../Constants"
 
 const ShoppingCart = () => {
     let products = useSelector(state => state.shoppingCart.productsInCart);
@@ -20,7 +21,7 @@ const ShoppingCart = () => {
     useEffect(() => {
             const fetchData = async () => {
                 const promises = Object.entries(products).map(([index, product]) =>
-                    axios(`http://localhost:4000/products/?id=${product.key}`)
+                    axios(`${Constans.API_PRODUCTS}/?id=${product.key}`)
                 );
 
                 try {

@@ -4,13 +4,14 @@ import axios from "axios";
 import {removeFromFavorites} from "../../data/reducer/FavoritesReducer";
 import css from "./FavoriteItem.module.scss";
 import {addProductToCart} from "../../data/reducer/ShoppingCartReducer";
+import * as Constans from "../../Constants"
 
 const FavoriteItem = (props) => {
     let dispatch = useDispatch();
     const [item, setItem] = useState();
 
         useEffect(() => {
-             axios(`http://localhost:4000/products/?id=${props.favoriteItem}`)
+             axios(`${Constans.API_PRODUCTS}/?id=${props.favoriteItem}`)
                  .then(r => {
                      setItem(r.data[0])
                  })

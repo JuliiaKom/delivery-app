@@ -8,6 +8,7 @@ import img from "./../../../fashion-images/icons/heart.svg"
 import Preloader from "../../Preloader/Preloader";
 import axios from "axios";
 import {addToFavorites} from "../../../data/reducer/FavoritesReducer";
+import * as Constans from "../../../Constants"
 
 const Product = (props) => {
     let {productId} = useParams();
@@ -20,7 +21,7 @@ const Product = (props) => {
         try {
             dispatch(toggleIsFetching(true));
 
-            const response = await axios.get(`http://localhost:4000/products/?id=${productId}`);
+            const response = await axios.get(`${Constans.API_PRODUCTS}/?id=${productId}`);
             const product = response.data[0];
 
             setProduct(product);

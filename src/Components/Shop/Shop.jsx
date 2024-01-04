@@ -7,6 +7,7 @@ import {toggleIsFetching, setProducts} from "../../data/reducer/shopReducer"
 import axios from "axios";
 import {addProductToCart} from "../../data/reducer/ShoppingCartReducer";
 import {addToFavorites} from "../../data/reducer/FavoritesReducer";
+import * as Constans from "../../Constants"
 
 const Shop = () => {
     let products = useSelector(state => state.shop.products);
@@ -16,7 +17,7 @@ const Shop = () => {
 
     useEffect(() => {
         dispatch(toggleIsFetching(true))
-        axios(`http://localhost:4000/products/?category=${category}`)
+        axios(`${Constans.API_PRODUCTS}/?category=${category}`)
             .then(r => {
                 dispatch(toggleIsFetching(false))
                 dispatch(setProducts(r.data))

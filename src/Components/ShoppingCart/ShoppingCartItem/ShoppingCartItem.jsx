@@ -1,5 +1,6 @@
 import css from "./ShoppingCartItem.module.scss";
 import {useDispatch} from "react-redux";
+import * as Constans from "../../../Constants"
 
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -11,7 +12,7 @@ const ShoppingCartItem = (props) => {
 
 
     useEffect(() => {
-        axios(`http://localhost:4000/products/?id=${props.shoppingCartItem.key}`)
+        axios(`${Constans.API_PRODUCTS}/?id=${props.shoppingCartItem.key}`)
             .then(r => {
                 setProduct(r.data[0])
             })
