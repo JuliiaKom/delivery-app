@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {addProductToCart, deleteProductAtCart, removeProductAtCart} from "../../../data/reducer/ShoppingCartReducer";
+import {addProductToCart,  decrementProductAtCart, removeProductAtCart} from "../../../data/reducer/ShoppingCartReducer";
 
 const ShoppingCartItem = (props) => {
     let dispatch = useDispatch();
@@ -30,7 +30,7 @@ const ShoppingCartItem = (props) => {
                         <div className={css.quantity}>
                             <button onClick={() => dispatch(addProductToCart(product.id))}> +</button>
                             <p>{props.shoppingCartItem.value}</p>
-                            <button onClick={() => dispatch(deleteProductAtCart(product.id))}> -</button>
+                            <button onClick={() => dispatch( decrementProductAtCart(product.id))}> -</button>
                         </div>
                     </div>
                     <button className={css.remove} onClick={() => dispatch(removeProductAtCart(product.id))}>Remove at

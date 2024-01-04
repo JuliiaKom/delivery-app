@@ -9,6 +9,25 @@ const updateLocalStorage = (state) => {
     localStorage.setItem("shoppingCart", JSON.stringify(state.productsInCart));
 };
 
+const removeFromLocalStorage = (id) => {
+    // localStorage.removeItem("shoppingCart", id);
+    const currentProducts = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+    const updatedProducts = currentProducts.filter((pr) => pr.key !== id);
+    localStorage.setItem("shoppingCart", JSON.stringify(updatedProducts));
+};
+
+// const decrementFromLocalStorage = (product) => {
+//     localStorage.removeItem("shoppingCart", product.id);
+//     localStorage.setItem("shoppingCart", product);
+// };
+const decrementFromLocalStorage = (product) => {
+    const currentProducts = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+    const updatedProducts = currentProducts.map((pr) =>
+        pr.id === product.id ? { ...pr, quantity: pr.quantity - 1 } : pr
+    );
+    localStorage.setItem("shoppingCart", JSON.stringify(updatedProducts));
+};
+
 const shoppingCartSlice = createSlice({
     name: `shoppingCart`,
     initialState:  loadProductsFromLocalStorage(),
@@ -39,7 +58,7 @@ const shoppingCartSlice = createSlice({
 
         },
 
-        deleteProductAtCart(state, action) {
+        decrementProductAtCart(state, action) {
             const id = action.payload;
             const existingProduct = state.productsInCart.find((pr) => pr.key === id);
 
@@ -55,12 +74,13 @@ const shoppingCartSlice = createSlice({
                     return { ...state, productsInCart: filteredProducts};
                 }
             } else {
+                decrementFromLocalStorage();
                 return state;
             }
         },
         removeProductAtCart(state, action) {
             let id = action.payload;
-
+            removeFromLocalStorage();
             return {
                 ...state,
                 productsInCart: [...state.productsInCart.filter((pr) => pr.key !== id)]
@@ -68,12 +88,12 @@ const shoppingCartSlice = createSlice({
         },
     }
 })
-export const {addProductToCart, deleteProductAtCart, removeProductAtCart,updateFormVisible,} = shoppingCartSlice.actions;
+export const {addProductToCart,  decrementProductAtCart, removeProductAtCart,updateFormVisible,} = shoppingCartSlice.actions;
 
 export const selectTotalQuantity = (state) => {
     return state.shoppingCart.productsInCart.reduce((total, product) => total + product.value, 0);
 };
 export const selectTotalQuantitySelector = createSelector(
- [selectTotalQuantity],
+ selectTotalQuantity,
  (totalQuantity) => totalQuantity);
 export default shoppingCartSlice.reducer;
