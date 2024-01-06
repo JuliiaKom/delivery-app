@@ -10,7 +10,7 @@ import store from "./data/store/store";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter>
+    <BrowserRouter basename="/delivery-app">
         <Provider store = {store}>
             <App data = {data}/>
         </Provider>
