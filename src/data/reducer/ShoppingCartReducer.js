@@ -21,11 +21,14 @@ const removeFromLocalStorage = (id) => {
 //     localStorage.setItem("shoppingCart", product);
 // };
 const decrementFromLocalStorage = (product) => {
-    const currentProducts = JSON.parse(localStorage.getItem("shoppingCart")) || [];
-    const updatedProducts = currentProducts.map((pr) =>
-        pr.id === product.id ? { ...pr, quantity: pr.quantity - 1 } : pr
-    );
-    localStorage.setItem("shoppingCart", JSON.stringify(updatedProducts));
+    // const currentProducts = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+    // const updatedProducts = currentProducts.map((pr) =>
+    //     pr.id === product.id ? { ...pr, quantity: pr.quantity - 1 } : pr
+    // );
+    //
+    // localStorage.setItem("shoppingCart", JSON.stringify(updatedProducts));
+    localStorage.removeItem("shoppingCart");
+    localStorage.setItem("shoppingCart", JSON.stringify(product.productsInCart));
 };
 
 const shoppingCartSlice = createSlice({
@@ -67,16 +70,21 @@ const shoppingCartSlice = createSlice({
                     const updatedProducts = state.productsInCart.map((pr) =>
                         pr.key === id ? { ...pr, value: pr.value - 1 } : pr
                     );
-
-                    return { ...state, productsInCart: updatedProducts};
+                    decrementFromLocalStorage(updatedProducts)
+                    const t =  { ...state, productsInCart: updatedProducts};
+                    decrementFromLocalStorage(t)
+                    return t
                 } else {
                     const filteredProducts = state.productsInCart.filter((pr) => pr.key !== id);
-                    return { ...state, productsInCart: filteredProducts};
+                    const t = { ...state, productsInCart: filteredProducts};
+                    decrementFromLocalStorage(t)
+                    return t
                 }
             } else {
                 decrementFromLocalStorage();
                 return state;
             }
+
         },
         removeProductAtCart(state, action) {
             let id = action.payload;
