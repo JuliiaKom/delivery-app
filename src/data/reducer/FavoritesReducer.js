@@ -9,6 +9,12 @@ const updateLocalStorage = (state) => {
     localStorage.setItem("favorites", JSON.stringify(state.favorites));
 };
 
+const removeFromLocalStorage = (id) => {
+    const currentProducts = JSON.parse(localStorage.getItem("favorites")) || [];
+    const updatedProducts = currentProducts.filter((pr) => pr !== id);
+    localStorage.setItem("favorites", JSON.stringify(updatedProducts));
+};
+
 const favoritesSlice = createSlice({
     name: "favorites",
     // initialState: loadFavoritesFromLocalStorage(),
@@ -25,7 +31,8 @@ const favoritesSlice = createSlice({
         },
         removeFromFavorites(state, action) {
             let id = action.payload;
-
+            console.log('sdfdsf')
+            removeFromLocalStorage(id)
             return {
                 ...state,
                 favorites: state.favorites.filter((pr) => pr !== id),
