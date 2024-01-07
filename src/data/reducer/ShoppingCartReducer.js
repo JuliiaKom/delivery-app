@@ -10,23 +10,12 @@ const updateLocalStorage = (state) => {
 };
 
 const removeFromLocalStorage = (id) => {
-    // localStorage.removeItem("shoppingCart", id);
     const currentProducts = JSON.parse(localStorage.getItem("shoppingCart")) || [];
     const updatedProducts = currentProducts.filter((pr) => pr.key !== id);
     localStorage.setItem("shoppingCart", JSON.stringify(updatedProducts));
 };
 
-// const decrementFromLocalStorage = (product) => {
-//     localStorage.removeItem("shoppingCart", product.id);
-//     localStorage.setItem("shoppingCart", product);
-// };
 const decrementFromLocalStorage = (product) => {
-    // const currentProducts = JSON.parse(localStorage.getItem("shoppingCart")) || [];
-    // const updatedProducts = currentProducts.map((pr) =>
-    //     pr.id === product.id ? { ...pr, quantity: pr.quantity - 1 } : pr
-    // );
-    //
-    // localStorage.setItem("shoppingCart", JSON.stringify(updatedProducts));
     localStorage.removeItem("shoppingCart");
     localStorage.setItem("shoppingCart", JSON.stringify(product.productsInCart));
 };
@@ -66,29 +55,28 @@ const shoppingCartSlice = createSlice({
             const existingProduct = state.productsInCart.find((pr) => pr.key === id);
 
             if (existingProduct) {
+                let newState = undefined
                 if (existingProduct.value > 1) {
                     const updatedProducts = state.productsInCart.map((pr) =>
                         pr.key === id ? { ...pr, value: pr.value - 1 } : pr
                     );
-                    decrementFromLocalStorage(updatedProducts)
-                    const t =  { ...state, productsInCart: updatedProducts};
-                    decrementFromLocalStorage(t)
-                    return t
+                    newState =  { ...state, productsInCart: updatedProducts};
+
                 } else {
                     const filteredProducts = state.productsInCart.filter((pr) => pr.key !== id);
-                    const t = { ...state, productsInCart: filteredProducts};
-                    decrementFromLocalStorage(t)
-                    return t
+                    newState = { ...state, productsInCart: filteredProducts};
                 }
+                decrementFromLocalStorage(newState)
+                return newState
+
             } else {
-                decrementFromLocalStorage();
                 return state;
             }
 
         },
         removeProductAtCart(state, action) {
             let id = action.payload;
-            removeFromLocalStorage();
+            removeFromLocalStorage(id);
             return {
                 ...state,
                 productsInCart: [...state.productsInCart.filter((pr) => pr.key !== id)]
