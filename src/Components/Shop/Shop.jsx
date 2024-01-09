@@ -36,7 +36,7 @@ const Shop = () => {
                 (
                     <div className={css.container} key={product.id}>
                         <img src={product.image} className={css.product} alt=""/>
-                        <div>
+                        <div className={css.blockProducts}>
                             {product.name}, {product.size}, ${product.price}
                             <div>
                                 <button onClick={() => ShowMoreHandler(product.id)}>Show more info</button>

@@ -14,26 +14,34 @@
     background-color: #f0f0f0;
     padding: 20px;
     border: 1px solid #ccc;
+    align-items: center;
+  }
+  .blockProducts {
+    padding: 20px;
+    font-size: 18px;
+  }
+  div {
+    padding-top: 15px;
+    button {
+      padding: 10px 20px;
+      background-color: #137777;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+      border-radius: 10px;
+    }
+  }
 
-  }
-  button {
-    padding: 10px 20px;
-    background-color: #137777;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    margin: 10px;
-    border-radius: 10px;
-  }
 
   button:hover {
     background-color: #36a4a4;
   }
   .product{
-    float: left;
     width:  220px;
     height: 280px;
     object-fit: cover;
+
   }
 
 }

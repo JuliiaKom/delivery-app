@@ -22,7 +22,7 @@ const ShoppingCartItem = (props) => {
         <div>
             {product && (
                 <div className={css.ShoppingCartItem}>
-                    <div>
+                    <div className={css.shoppingCartImg}>
                         <img src={product.image} alt=""/>
                     </div>
                     <h2>{product.name}</h2>
